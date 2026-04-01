@@ -1,4 +1,6 @@
-# searchconsole-mcp
+# Google Search Console MCP Server (by Haris Nadeem)
+
+Package name: `searchconsole-mcp`
 
 A lightweight, fast MCP server for Google Search Console. Query search analytics, manage sitemaps, and inspect URLs directly from your AI assistant.
 
