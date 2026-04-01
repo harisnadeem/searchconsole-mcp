@@ -50,9 +50,11 @@ class TestRefreshAccessToken:
         fake_creds.valid = True
         fake_creds.token = None
 
-        with patch("searchconsole_mcp.utils.get_credentials", return_value=fake_creds):
-            with pytest.raises(RuntimeError, match="Failed to obtain an access token"):
-                utils._refresh_access_token()
+        with (
+            patch("searchconsole_mcp.utils.get_credentials", return_value=fake_creds),
+            pytest.raises(RuntimeError, match="Failed to obtain an access token"),
+        ):
+            utils._refresh_access_token()
 
 
 class TestGoogleBearerAuth:

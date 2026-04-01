@@ -5,9 +5,9 @@ and httpx for REST calls against the Search Console API v3.
 """
 
 import urllib.parse
-from typing import Any, Literal, Optional
+from typing import Any, Literal
 
-from searchconsole_mcp.utils import get_authenticated_client, GSC_BASE_URL
+from searchconsole_mcp.utils import GSC_BASE_URL, get_authenticated_client
 
 __all__ = [
     "get_sites",
@@ -51,15 +51,13 @@ async def query_search_analytics(
     site_url: str,
     start_date: str,
     end_date: str,
-    dimensions: Optional[list[str]] = None,
-    search_type: Optional[
-        Literal["web", "image", "video", "news", "discover", "googleNews"]
-    ] = "web",
-    row_limit: Optional[int] = 1000,
-    start_row: Optional[int] = 0,
-    data_state: Optional[Literal["final", "all"]] = "final",
-    aggregation_type: Optional[Literal["auto", "byPage", "byProperty"]] = None,
-    dimension_filter_groups: Optional[list[dict[str, Any]]] = None,
+    dimensions: list[str] | None = None,
+    search_type: Literal["web", "image", "video", "news", "discover", "googleNews"] | None = "web",
+    row_limit: int | None = 1000,
+    start_row: int | None = 0,
+    data_state: Literal["final", "all"] | None = "final",
+    aggregation_type: Literal["auto", "byPage", "byProperty"] | None = None,
+    dimension_filter_groups: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     """Query Search Analytics data for a website.
 

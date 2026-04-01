@@ -9,13 +9,13 @@ from mcp import types as mcp_types
 from mcp.server.lowlevel import Server
 
 from searchconsole_mcp.tools import (
-    get_sites,
-    query_search_analytics,
-    get_sitemap,
-    list_sitemaps,
-    submit_sitemap,
     delete_sitemap,
+    get_sitemap,
+    get_sites,
     inspect_url,
+    list_sitemaps,
+    query_search_analytics,
+    submit_sitemap,
 )
 
 logger = logging.getLogger(__name__)
@@ -93,11 +93,13 @@ MCP_TOOLS = _build_tools()
 
 @app.list_tools()
 async def list_tools() -> list[mcp_types.Tool]:
+    """Return all registered MCP tools."""
     return MCP_TOOLS
 
 
 @app.call_tool()
 async def call_tool(name: str, arguments: dict) -> list[mcp_types.Content]:
+    """Execute a registered tool by name with the provided arguments."""
     if name not in TOOL_FUNCTIONS:
         error_text = json.dumps({"error": f"Tool '{name}' not found."})
         return [mcp_types.TextContent(type="text", text=error_text)]

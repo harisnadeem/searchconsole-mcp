@@ -1,19 +1,17 @@
-"""Tests for searchconsole_mcp/coordinator.py"""
+"""Tests for searchconsole_mcp/coordinator.py."""
 
 import json
-import inspect
 from unittest.mock import AsyncMock, patch
 
 import pytest
-from mcp import types as mcp_types
 
 from searchconsole_mcp.coordinator import (
-    _sig_to_json_schema,
-    _build_tools,
-    list_tools,
-    call_tool,
     MCP_TOOLS,
     TOOL_FUNCTIONS,
+    _build_tools,
+    _sig_to_json_schema,
+    call_tool,
+    list_tools,
 )
 
 
