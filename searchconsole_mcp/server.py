@@ -4,6 +4,7 @@ import asyncio
 import logging
 import sys
 import traceback
+
 from searchconsole_mcp.coordinator import app
 
 logging.basicConfig(level=logging.INFO, format="%(message)s")

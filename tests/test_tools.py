@@ -1,16 +1,14 @@
 """Tests for searchconsole_mcp/tools/__init__.py and tool functions."""
 
+from unittest.mock import AsyncMock, MagicMock, patch
+
 import pytest
-from unittest.mock import AsyncMock, patch, MagicMock
+
 from searchconsole_mcp.tools import (
     _quote,
     get_sites,
-    query_search_analytics,
-    get_sitemap,
-    list_sitemaps,
-    submit_sitemap,
-    delete_sitemap,
     inspect_url,
+    query_search_analytics,
 )
 
 
